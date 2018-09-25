@@ -1,0 +1,9 @@
+[
+  {
+    "username": "Brick",
+    "email": "testing@ucsc.edu",
+    "password": "12345678",
+    "college": "Crown",
+    "active": "true"
+  }
+]
