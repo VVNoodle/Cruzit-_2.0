@@ -15,7 +15,7 @@
     "owners": ["Bob", "Bobby"],
     "description": "Fruit",
     "medium": ["Water Color"],
-    "likes": 43,
+    "likes": 0,
     "links": [
       "https://cdn1.iconfinder.com/data/icons/watercolor-fruits/1564/apple.png"
     ],

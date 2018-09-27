@@ -53,21 +53,37 @@
         :to='{name: "project", params: {projectId: project.id}}'>
         View
       </v-btn>
-      <v-icon>favorite</v-icon>
+      <v-icon @click="toggleUpvote">favorite</v-icon>
       <p class="small-info">{{project.likes}}</p>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
+import UpvotesService from '@/services/UpvotesService'
+
 export default {
   props: ['index', 'project', 'cluster'],
+  data () {
+    return {
+      upvote: {}
+    }
+  },
   methods: {
     checkLong (title) {
       if (this.$vuetify.breakpoint.width >= 665 && title.length > 24) {
         return title.substring(0, 24) + ' ...'
       }
       return title.substring(0, 28) + ' ...'
+    },
+    async toggleUpvote () {
+      try {
+        this.upvote = (await UpvotesService.post({
+          projectId: this.project.id
+        })).data
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 }
